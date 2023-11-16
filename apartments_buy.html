@@ -1,0 +1,99 @@
+<!-- HTML file for "Apartment Listings" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment Listings</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .apartment {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            margin: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .apartment img {
+            max-width: 100%;
+            height: auto;
+        }
+        .apartment h2 {
+            margin: 10px 0;
+        }
+        .apartment .price {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .wishlist-button {
+            margin-top: 10px;
+            background-color: #28a745;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }  
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="apartment">
+            <img src="images\PUIC_Classic_studio_1.jpeg" alt="Apartment 1">
+            <h2>Apartment 1</h2>
+            <p class="price">Rs.30,00,000</p>
+            <button class="wishlist-button" onclick="addToWishlist('Apartment 1')">Add to Wishlist</button>
+        </div>
+
+        <div class="apartment">
+            <img src="images\PUIC_Classic_studio_3.jpg" alt="Apartment 2">
+            <h2>Apartment 2</h2>
+            <p class="price">Rs.39,00,000</p>
+            <button class="wishlist-button" onclick="addToWishlist('Apartment 2')">Add to Wishlist</button>
+        </div>
+
+        <div class="apartment">
+            <img src="images\waterchase-apartment-homes-florence-sc-primary-photo.jpg" alt="Apartment 3">
+            <h2>Apartment 3</h2>
+            <p class="price">Rs.2,60,00,000</p>
+            <button class="wishlist-button" onclick="addToWishlist('Apartment 3')">Add to Wishlist</button>
+        </div>
+        <div class="apartment">
+            <img src="images\waterchase-apartment-homes-florence-sc-primary-photo.jpg" alt="Apartment 3">
+            <h2>Apartment 4</h2>
+            <p class="price">Rs.2,60,00,000</p>
+            <button class="wishlist-button" onclick="addToWishlist('Apartment 4')">Add to Wishlist</button>
+        </div>
+        <div class="apartment">
+            <img src="images\waterchase-apartment-homes-florence-sc-primary-photo.jpg" alt="Apartment 3">
+            <h2>Apartment 5</h2>
+            <p class="price">Rs.2,60,00,000</p>
+            <button class="wishlist-button" onclick="addToWishlist('Apartment 5')">Add to Wishlist</button>
+        </div>
+        <div class="apartment">
+            <img src="images\waterchase-apartment-homes-florence-sc-primary-photo.jpg" alt="Apartment 3">
+            <h2>Apartment 6</h2>
+            <p class="price">Rs.2,60,00,000</p>
+            <button class="wishlist-button" onclick="addToWishlist('Apartment 6')">Add to Wishlist</button>
+        </div>
+    </div>
+
+    <script>
+        function addToWishlist(apartmentName) {
+            alert('Added ' + apartmentName + ' to your Wishlist!');
+            // You can implement additional logic to store the selected apartments in the user's wishlist.
+            window.location.href = 'wishlist2.html';  // Redirect to wishlist.html
+        }
+    </script>
+</body>
+</html>

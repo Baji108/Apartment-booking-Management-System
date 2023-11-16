@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form id="signup-form" onsubmit="handleSignup(event)">
+            <label for="newUsername">Username:</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div id="signup-error-message" class="error-message"></div>
+
+        <p>Already have an account? <a href="index.html">Login</a></p>
+    </div>
+    <script>
+        function handleSignup(event) {
+            event.preventDefault();
+            const newUsername = document.getElementById("newUsername").value;
+            const newPassword = document.getElementById("newPassword").value;
+
+            // Retrieve existing user data or initialize an empty array
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Check if the username already exists
+            const userExists = users.some(user => user.username === newUsername);
+
+            if (userExists) {
+                document.getElementById("signup-error-message").textContent = "Username already exists.";
+            } else {
+                // Add the new user to the array
+                users.push({ username: newUsername, password: newPassword });
+
+                // Save the updated user data
+                localStorage.setItem("users", JSON.stringify(users));
+
+                // For simplicity, this example always alerts a success message
+                alert('Signup successful! You can now login.');
+                window.location.href = 'login2.html';
+            }
+        }
+    </script>
+</body>
+</html>

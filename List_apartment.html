@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Apartment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>List Your Apartment for Sale</h2>
+        <form action="/submitApartment" method="post" enctype="multipart/form-data">
+            <label for="apartmentName">Apartment Name:</label>
+            <input type="text" id="apartmentName" name="apartmentName" required>
+
+            <label for="apartmentImages">Apartment Images:</label>
+            <input type="file" id="apartmentImages" name="apartmentImages" accept="image/*" multiple required>
+
+            <label for="apartmentPrice">Price:</label>
+            <input type="text" id="apartmentPrice" name="apartmentPrice" required>
+
+            <label for="additionalDetails">Additional Details:</label>
+            <textarea id="additionalDetails" name="additionalDetails" rows="4"></textarea>
+
+            <button type="submit">List My Apartment</button>
+        </form>
+    </div>
+</body>
+</html>

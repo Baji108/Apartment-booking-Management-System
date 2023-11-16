@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .apartment {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            margin: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .apartment img {
+            max-width: 100%;
+            height: auto;
+        }
+        .apartment h2 {
+            margin: 10px 0;
+        }
+        .apartment .price {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .wishlist-button {
+            margin-top: 10px;
+            background-color: #28a745;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }  
+    </style>
+</head>
+<body>
+    <div class="container" id="wishlistContainer">
+        <!--   Wishlist items will be added here dynamically using JavaScript -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+         displayWishlist();
+
+  // Function to retrieve wishlist items from the server
+        async function getWishlist() {
+         try {
+         const response = await fetch('http://localhost:3000/getWishlist');
+        return await response.json();
+         } catch (error) {
+        console.error('Error fetching wishlist:', error);
+        }
+    }
+
+  // Function to display wishlist items on the webpage
+  async function displayWishlist() {
+    const wishlistContainer = document.getElementById('wishlistContainer');
+    wishlistContainer.innerHTML = ''; // Clear existing content
+
+    const wishlist = await getWishlist();
+
+    wishlist.forEach(apartment => {
+      const apartmentDiv = document.createElement('div');
+      apartmentDiv.className = 'apartment';
+
+      const apartmentImage = document.createElement('img');
+      apartmentImage.src = apartment.imageUrl;
+      apartmentImage.alt = apartment.apartmentName;
+
+      const apartmentName = document.createElement('h2');
+      apartmentName.textContent = apartment.apartmentName;
+
+      const apartmentPrice = document.createElement('p');
+      apartmentPrice.className = 'price';
+      apartmentPrice.textContent = 'Price: ' + apartment.price;
+
+      apartmentDiv.appendChild(apartmentImage);
+      apartmentDiv.appendChild(apartmentName);
+      apartmentDiv.appendChild(apartmentPrice);
+
+      wishlistContainer.appendChild(apartmentDiv);
+    });
+  }
+  function addToWishlist(apartmentName, imageUrl, price) {
+  alert('Added ' + apartmentName + ' to your Wishlist!');
+
+  // Send a POST request to the server to add the apartment to the wishlist
+  fetch('http://127.0.0.1:5500//addToWishlist', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ apartmentName, imageUrl, price }),
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+
+  window.location.href = 'wishlist.html';  // Redirect to wishlist.html
+}
+
+});
+
+    </script>
+</body>
+</html>

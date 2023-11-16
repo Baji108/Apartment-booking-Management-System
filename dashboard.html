@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Apartments bookings</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #333;
+            position: fixed;
+            top: 0px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MyUrbanStay</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Home</a>
+                <div class="dropdown-content">
+                    <a href="#profile">Profile</a>
+                    <a href="wishlist.html" id="wishlistLink">Wishlist</a>
+                    <a href="#bookings">My Bookings</a>
+                    <a href="index.html">Logout</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Apartments</a>
+                <div class="dropdown-content">
+                    <a href="apartments_buy.html">Buy</a>
+                    <a href="apartments_rent.html">Rent</a>
+                    <a href="List_apartment.html">List Apartment</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Feedback&Ratings</a>
+                <div class="dropdown-content">
+                    <a href="feedback.html">Feedback</a>
+                </div>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to MyUrbanStay</h2>
+            <p>This is the home section of the webpage.</p>
+        </section>
+
+        <section id="Apartments">
+            <h2>Apartments</h2>
+            <p>Here are the list of properties that you can buy or rent.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>Explore the services we offer.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us.</p>
+        </section>
+    </main>
+
+    <script>
+        function Wishlist() {
+            window.location.href = 'wishlist.html'; // Redirect to wishlist.html
+        }
+
+        function logout() {
+            // Assuming your login page is named "index.html"
+            window.location.href = 'index.html';
+        }
+    </script>
+    <script src="server.js"></script>
+    <script src="server2.js"></script>
+</body>
+</html>

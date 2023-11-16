@@ -1,0 +1,122 @@
+<!-- HTML file for "Apartments for Rent" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartments for Rent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .apartment {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            margin: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .apartment img {
+            max-width: 100%;
+            height: auto;
+        }
+        .apartment h2 {
+            margin: 10px 0;
+        }
+        .apartment .price {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .date-selector {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .date-selector label {
+            margin-right: 10px;
+        }
+        .date-input {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .book-button {
+            margin-top: 10px;
+            background-color: #28a745;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="apartment">
+            <img src="images\PUIC_Classic_studio_1.jpeg" alt="Apartment 1">
+            <h2>Apartment 1</h2>
+            <p class="price">Rent: Rs.15,000/month</p>
+            <div class="date-selector">
+                <label for="startDate1">Select Start Date:</label>
+                <input type="date" id="startDate1" class="date-input" required>
+
+                <label for="endDate1">Select End Date:</label>
+                <input type="date" id="endDate1" class="date-input" required>
+            </div>
+            <button class="wishlist-button" onclick="addToWishlist('Apartment 1')">Add to Wishlist</button>
+            <button class="book-button" onclick="bookApartment('Apartment 1')">Book Now</button>
+        </div>
+
+        <div class="apartment">
+            <img src="images\PUIC_Classic_studio_3.jpg" alt="Apartment 2">
+            <h2>Apartment 2</h2>
+            <p class="price">Rent: Rs.20,000/month</p>
+            <div class="date-selector">
+                <label for="startDate2">Select Start Date:</label>
+                <input type="date" id="startDate2" class="date-input" required>
+
+                <label for="endDate2">Select End Date:</label>
+                <input type="date" id="endDate2" class="date-input" required>
+            </div>
+            <button class="wishlist-button" onclick="addToWishlist('Apartment 2')">Add to Wishlist</button>
+            <button class="book-button" onclick="bookApartment('Apartment 2')">Book Now</button>
+        </div>
+
+        <div class="apartment">
+            <img src="images\waterchase-apartment-homes-florence-sc-primary-photo.jpg" alt="Apartment 3">
+            <h2>Apartment 3</h2>
+            <p class="price">Rent: Rs.25,000/month</p>
+            <div class="date-selector">
+                <label for="startDate3">Select Start Date:</label>
+                <input type="date" id="startDate3" class="date-input" required>
+
+                <label for="endDate3">Select End Date:</label>
+                <input type="date" id="endDate3" class="date-input" required>
+            </div>
+            <button class="wishlist-button" onclick="addToWishlist('Apartment 3')">Add to Wishlist</button>
+            <button class="book-button" onclick="bookApartment('Apartment 3')">Book Now</button>
+        </div>
+    </div>
+
+    <script>
+        function addToWishlist(apartmentName) {
+            alert('Added ' + apartmentName + ' to your Wishlist!');
+            // You can implement additional logic to store the selected apartments in the user's wishlist.
+            window.location.href = 'wishlist2.html';  // Redirect to wishlist.html
+        }
+
+        function bookApartment(apartmentName) {
+            // ... (your existing bookApartment logic) ...
+        }
+    </script>
+</body>
+</html>
